@@ -1,4 +1,3 @@
-
 .our-clients {
     overflow: hidden
 }
@@ -7,17 +6,36 @@
     width: 100%;
     height: 500px;
     position: relative;
-    overflow: hidden
+    overflow: hidden;
 }
+
+.our-clients__container a {
+    opacity: 0;
+}
+
+.our-clients__container a:nth-child(1) { opacity: 1; transform: translate(1102.36px, 79.4906px) scale(0.57); }
+.our-clients__container a:nth-child(2) { opacity: 1; transform: translate(1100.58px, 213.142px) scale(0.57) }
+.our-clients__container a:nth-child(3) { opacity: 1; transform: translate(400.53px, 331.537px) scale(0.95); }
+.our-clients__container a:nth-child(4) { opacity: 1; transform: translate(624.79px, 118.295px) scale(0.95); }
+.our-clients__container a:nth-child(5) { opacity: 1; transform: translate(93.84px, 146.537px) scale(0.95) }
+.our-clients__container a:nth-child(6) { opacity: 1; transform: translate(940.95px, 323.341px) scale(0.95) }
+.our-clients__container a:nth-child(7) { opacity: 1; transform: translate(799.477px, 224.805px) scale(0.57); }
+.our-clients__container a:nth-child(8) { opacity: 1; transform: translate(254.972px, 262.713px) scale(0.57); }
+.our-clients__container a:nth-child(9) { opacity: 1; transform: translate(1208.84px, 315.491px) scale(0.57); }
+.our-clients__container a:nth-child(10) { opacity: 1; transform: translate(428.802px, 205.959px) scale(0.57); }
+.our-clients__container a:nth-child(11) { opacity: 1; transform: translate(2528.19px, 347.817px) scale(0.57); }
+.our-clients__container a:nth-child(12) { opacity: 1; transform: translate(1280.69px, 183.439px) scale(0.76); }
+.our-clients__container a:nth-child(13) { opacity: 1; transform: translate(902.28px, 98.5681px) scale(0.76); }
+.our-clients__container a:nth-child(14) { opacity: 1; transform: translate(626.984px, 300.008px) scale(0.76); }
+.our-clients__container a:nth-child(15) { opacity: 1; transform: translate(307.764px, 88.0204px) scale(0.76); }
+.our-clients__container a:nth-child(16) { opacity: 1; transform: translate(121.524px, 340.42px) scale(0.76); }
 
 .our-clients__icon {
     width: 150px;
     height: 150px;
-    /* height: 100px; */
     margin: -75px 0 0 -75px;
     padding: 5px;
     border-radius: 50%;
-    /* border-radius: 50px; */
     -webkit-box-shadow: 0 15px 35px rgba(0, 0, 0, .1), 0 3px 10px rgba(0, 0, 0, .07);
     box-shadow: 0 15px 35px rgba(0, 0, 0, .1), 0 3px 10px rgba(0, 0, 0, .07)
 }
@@ -78,4 +96,3 @@
     width: 90%;
     height: auto;
 }
-/*  */

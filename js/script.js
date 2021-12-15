@@ -1,3 +1,24 @@
+const ourClientsContainer = document.querySelectorAll('.our-clients__container a')
+document.querySelector('.our-clients__container').innerHTML = '';
+
+let dataBody = []
+for (let i = 0; i < ourClientsContainer.length; i++) {
+    let img = ourClientsContainer[i].lastElementChild.attributes.src.value
+    let url = ourClientsContainer[i].attributes.href.nodeValue
+    let name = ourClientsContainer[i].innerText
+    dataBody.push(
+        '{"name": "' +
+        name +
+        '", "url": "' +
+        url +
+        '", "img": "' +
+        img +
+        '"}'
+    )
+}
+
+let data = '[' + dataBody.toString() + ']'
+
 window.Strut = {
 
     ready: function (t) {
@@ -30,7 +51,6 @@ function LogoBubbles(s) {
     for (var a = 0; a < e.bubbles.length; a++) {
         var o = e.bubbles[a],
             t = a % e.logos.length;
-        // o.scale = o.s || 1, o.seedX = 1e4 * Math.random(), o.seedY = 1e4 * Math.random(), o.noiseX = o.noiseY = 0, o.introDelay = Math.random() * e.introDelay, o.introProgress = 0, o.el = document.createElement("div"), o.el.className = e.classPrefix + e.logos[t].cssClass, o.tagEl = document.createElement("span"), o.tagEl.innerHTML = e.logos[t].name, o.el.appendChild(o.tagEl), l(o), e.container.appendChild(o.el)
         o.scale = o.s || 1,
             o.seedX = 1e4 * Math.random(),
             o.seedY = 1e4 * Math.random(),
@@ -38,18 +58,14 @@ function LogoBubbles(s) {
             o.introDelay = Math.random() * e.introDelay,
             o.introProgress = 0,
             o.el = document.createElement("a"),
-            // o.el.className = e.classPrefix + e.logos[t].cssClass,
             o.el.className = e.classPrefix,
             o.el.setAttribute("href", e.logos[t].url),
             o.tagEl = document.createElement("span"),
             o.tagEl.innerHTML = e.logos[t].name,
             o.el.appendChild(o.tagEl),
-
-
             o.tagDev = document.createElement("img"),
             o.tagDev.setAttribute("src", e.logos[t].img),
             o.el.appendChild(o.tagDev),
-
             l(o),
             e.container.appendChild(o.el)
     }
@@ -73,10 +89,9 @@ function LogoBubbles(s) {
             return s * (1 - n) + e * n
         }(a, e.containerHeight / 2, e.vertShrink * e.maxShrink), n < -200 && (s.x += e.containerWidth);
         var o = c(s.introProgress) / 20 + .95;
-        // o *= s.scale, s.el.style.opacity = c(s.introProgress), s.el.style.transform = "translate(" + n + "px, " + a + "px) scale(" + o + ")"
         o *= s.scale,
-        s.el.style.opacity = 1,
-        s.el.style.transform = "translate(" + n + "px, " + a + "px) scale(" + o + ")"
+            s.el.style.opacity = 1,
+            s.el.style.transform = "translate(" + n + "px, " + a + "px) scale(" + o + ")"
     }
 
     function c(s) {
@@ -215,178 +230,8 @@ var bubbles = [{
         x: 1990,
         y: 75
     }],
-    logos = [{
-        //     name: "Affirm",
-        //     cssClass: "Affirm"
-        // }, {
-        //     name: "Allianz",
-        //     cssClass: "Allianz"
-        // }, {
-        //     name: "Amazon",
-        //     cssClass: "Amazon"
-        // }, {
-        //     name: "Blue Apron",
-        //     cssClass: "BlueApron"
-        // }, {
-        //     name: "Booking.com",
-        //     cssClass: "BookingCom"
-        // }, {
-        //     name: "Catawiki",
-        //     cssClass: "Catawiki"
-        // }, {
-        //     name: "City of Boston",
-        //     cssClass: "CityofBoston"
-        // }, {
-        //     name: "Deliveroo",
-        //     cssClass: "Deliveroo"
-        // }, {
-        //     name: "DiDi",
-        //     cssClass: "DiDi"
-        // }, {
-        //     name: "Doordash",
-        //     cssClass: "Doordash"
-        // }, {
-        //     name: "Expedia",
-        //     cssClass: "Expedia"
-        // }, {
-        //     name: "Fender Guitars",
-        //     cssClass: "Fender"
-        // }, {
-        //     name: "Fitbit",
-        //     cssClass: "Fitbit"
-        // }, {
-        //     name: "GitHub",
-        //     cssClass: "GitHub"
-        // }, {
-        //     name: "Google",
-        //     cssClass: "Google"
-        // }, {
-        //     name: "Indiegogo",
-        //     cssClass: "Indiegogo"
-        // }, {
-        //     name: "Instacart",
-        //     cssClass: "Instacart"
-        // }, {
-        //     name: "Kickstarter",
-        //     cssClass: "Kickstarter"
-        // }, {
-        //     name: "Lyft",
-        //     cssClass: "Lyft"
-        // }, {
-        //     name: "Nasdaq",
-        //     cssClass: "Nasdaq"
-        // }, {
-        //     name: "Nat Geo",
-        //     cssClass: "Nat-Geo"
-        // }, {
-        //     name: "OpenTable",
-        //     cssClass: "OpenTable"
-        // }, {
-        //     name: "Panic",
-        //     cssClass: "Panic"
-        // }, {
-        //     name: "Postmates",
-        //     cssClass: "Postmates"
-        // }, {
-        //     name: "Rackspace",
-        //     cssClass: "Rackspace"
-        // }, {
-        //     name: "Reddit",
-        //     cssClass: "Reddit"
-        // }, {
-        //     name: "Salesforce",
-        //     cssClass: "Salesforce"
-        // }, {
-            name: "Shopify",
-            cssClass: "Shopify",
-            url: "test",
-            img: "img/image_3.svg"
-        }, {
-            name: "Slack",
-            cssClass: "Slack",
-            url: "test",
-            img: "img/image_4.svg"
-        }, {
-            name: "Spotify",
-            cssClass: "Spotify",
-            url: "test",
-            img: "img/image_5.svg"
-        }, {
-            name: "Squarespace",
-            cssClass: "Squarespace",
-            url: "test",
-            img: "img/image_19.svg"
-        }, {
-            name: "Target",
-            cssClass: "Target",
-            url: "test",
-            img: "img/image_7.svg"
-        }, {
-            name: "TaskRabbit",
-            cssClass: "TaskRabbit",
-            url: "test",
-            img: "img/image_8.svg"
-        }, {
-            name: "Ted",
-            cssClass: "Ted",
-            url: "test",
-            img: "img/image_9.svg"
-        }, {
-            name: "The Guardian",
-            cssClass: "TheGuardian",
-            url: "test",
-            img: "img/image_10.svg"
-        }, {
-            name: "TicketSwap",
-            cssClass: "TicketSwap",
-            url: "test",
-            img: "img/image_11.svg"
-        }, {
-            name: "Turo",
-            cssClass: "Turo",
-            url: "test",
-            img: "img/image_12.svg"
-        }, {
-            name: "Twitch",
-            cssClass: "Twitch",
-            url: "test",
-            img: "img/image_13.svg"
-        }, {
-            name: "Uber",
-            cssClass: "Uber",
-            url: "test",
-            img: "img/image_14.svg"
-        }, {
-            name: "WeTransfer",
-            cssClass: "WeTransfer",
-            url: "test",
-            img: "img/image_15.svg"
-        }, {
-            name: "WeWork",
-            cssClass: "WeWork",
-            url: "test",
-            img: "img/image_16.svg"
-        }, {
-            name: "Wish",
-            cssClass: "Wish",
-            url: "test",
-            img: "img/image_17.svg"
-        }, {
-            name: "Xero",
-            cssClass: "Xero",
-            url: "test",
-            img: "img/image_18.svg"
-        }, {
-            name: "Yelp",
-            cssClass: "Yelp",
-            url: "yelp",
-            img: "img/image_1.svg"
-        }, {
-            name: "Zillow",
-            cssClass: "Zillow",
-            url: "primer",
-            img: "img/image_2.svg"
-    }];
+    logos = eval(data);
+
 Strut.ready(function () {
     window.logoBubbles = new LogoBubbles({
         bubbles: bubbles,
@@ -403,7 +248,8 @@ Strut.ready(function () {
         introDuration: 1500
     })
 });
-var perlin, PERLIN_ZWRAPB = 8,
+
+let perlin, PERLIN_ZWRAPB = 8,
     PERLIN_ZWRAP = 1 << PERLIN_ZWRAPB,
     PERLIN_SIZE = 4095,
     perlin_octaves = 4,
